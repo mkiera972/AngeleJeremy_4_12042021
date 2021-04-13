@@ -215,7 +215,7 @@ input {
   display: block;
   margin-top: 7px;
   margin-bottom: 7px;
-  text-align: right;
+  text-align: left;
   line-height: 0.3;
   opacity: 0;
   transition: 0.3s;
@@ -271,6 +271,9 @@ input[data-error]::after {
 }
 .checkbox-input {
   display: none;
+  /*position: absolute;
+  top: 10px;
+  left: 10px;*/
 }
 .checkbox-input:checked + .checkbox-label .checkbox-icon::after,
 .checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
