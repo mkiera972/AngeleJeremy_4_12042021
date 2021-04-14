@@ -2,8 +2,10 @@ function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
     x.className += " responsive";
+    fa.style.color = "#ffffff";
   } else {
     x.className = "topnav";
+    fa.style.color = "#fe142f";
   }
 }
 
@@ -14,12 +16,15 @@ const formData = document.querySelectorAll(".formData");
 const inputFormData = document.querySelectorAll(".text-control");
 const checkboxFormData = document.querySelectorAll(".checkbox-input");
 const spanClose = document.querySelector(".close");
+const alertResult = document.querySelector(".alert");
+const fa = document.querySelector(".fa");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // launch modal form
 function launchModal() {
+  alertResult.setAttribute("class","alert alert-success alert-none");
   modalbg.style.display = "block";
 }
 
@@ -33,26 +38,30 @@ function closeModal() {
 
 /**
  * Cette fonction controle les champs de saisie
- * @returns true
+ * @returns le statut du formulaire
  */
 function check_saisie(type = 'input'){
+
   statutSaisie = false;
+
   switch (type) {
+    //CONTROLE DES CHECKBOX
     case 'checkbox':
       let cityIsChecked = false;
       let conditionUtilisationIsChecked = false;
+
       for (i = 0; i < checkboxFormData.length; i++) {
         let idCheckbox = checkboxFormData[i].id;
-        let checkboxChecked = checkboxFormData[i].checked;
-        console.log(idCheckbox,checkboxChecked)
+        let checkboxIsChecked = checkboxFormData[i].checked;
         if(idCheckbox.indexOf('location') !==-1 ){
-          if(checkboxChecked){
+          if(checkboxIsChecked){
             cityIsChecked = true;
           }
-        }else if(idCheckbox == "checkbox1" && checkboxChecked){
+        }else if(idCheckbox == "checkbox1" && checkboxIsChecked){
           conditionUtilisationIsChecked = true;
         }
-      }
+
+      }//for (i = 0; i < checkboxFormData.length; i++)
 
       //AFFICHAGE DU MESSAGE D'ERREUR SI AUCUN VILLE CHOISIE
       if(!cityIsChecked){
@@ -61,35 +70,52 @@ function check_saisie(type = 'input'){
         formData[5].setAttribute("data-error-visible","false");
       }
 
-      //AFFICHAGE DU MESSAGE D'ERREUR SI CONDITION UTILISATION PAS CHOISIE
+      //AFFICHAGE DU MESSAGE D'ERREUR SI CONDITION D'UTILISATION NON COCHEE
       if(!conditionUtilisationIsChecked){
         formData[6].setAttribute("data-error-visible","true");
       }else{
         formData[6].setAttribute("data-error-visible","false");
       }
-
-      
+     
       if(cityIsChecked && conditionUtilisationIsChecked){
         statutSaisie = true;
       }else{
         statutSaisie = false;
       }
-
       break;
+    //CONTROLE DES INPUTS  
     default:
       for (i = 0; i < inputFormData.length; i++) {
         let idInput = inputFormData[i].id;
         let valueInput = inputFormData[i].value.trim();
-        if((valueInput == '')){
-          formData[i].setAttribute("data-error-visible","true");
-          statutSaisie = false;
-        }else{
-          formData[i].setAttribute("data-error-visible","false");
-          statutSaisie = true;
+
+        switch (idInput) {
+          case "first":
+          case "last":
+              if((valueInput.length < 2)){
+                formData[i].setAttribute("data-error-visible","true");
+                statutSaisie = false;
+              }else{
+                formData[i].setAttribute("data-error-visible","false");
+                statutSaisie = true;
+              }  
+            break;
+        
+          default:
+              if((valueInput == '')){
+                formData[i].setAttribute("data-error-visible","true");
+                statutSaisie = false;
+              }else{
+                formData[i].setAttribute("data-error-visible","false");
+                statutSaisie = true;
+              }
+            break;
         }
-      }
+
+      }//for (i = 0; i < inputFormData.length; i++)
       break;
-  }
+
+  }//switch (type)
 
   return statutSaisie;
 }
@@ -103,7 +129,12 @@ function validate(){
 
   //RESET DU FORMULAIRE SI VALIDATION OK
   document.getElementById("reserve").reset();
-  console.log(resultForm)
+
+  //FERMETURE DE LA MODAL
+  closeModal();
+
+  //AJOUT DU MESSAGE DE VALIDATION DU FORMULAIRE
+  alertResult.setAttribute("class","alert alert-success alert-display");
   return false;
 }
 

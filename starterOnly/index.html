@@ -14,7 +14,7 @@
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-        <img alt="logo" src="Logo.png" width="auto" height="auto" />
+        <img alt="logo" src="Logo.png" />
       </div>
       <div class="main-navbar">
         
@@ -32,8 +32,7 @@
       <div class="hero-section">
         <div class="hero-content">
           <h1 class="hero-headline">
-            Marathon national<br>
-            de jeux vidéos
+            Marathon national de jeux vidéos
           </h1>
           <p class="hero-text">
             Vous aimez jouer ? Notre prochain évènement gaming est ouvert
@@ -63,7 +62,7 @@
               onsubmit="return validate();"
             >
               <div
-                class="formData"  data-error="Veuillez saisir un nom">
+                class="formData"  data-error="Veuillez saisir un nom avec un minimum de deux caractères.">
                 <label for="first">Prénom</label>
                 <input
                   class="text-control"
@@ -73,10 +72,10 @@
                   minlength="2"
                   onchange="check_saisie()"
                   required
-                /><br>
+                />
               </div>
               <div
-                class="formData" data-error="Veuillez saisir un prénom">
+                class="formData" data-error="Veuillez saisir un prénom avec un minimum de deux caractères.">
                 <label for="last">Nom</label>
                 <input
                   class="text-control"
@@ -86,7 +85,7 @@
                   minlength="2"
                   required
                   onchange="check_saisie()"
-                /><br>
+                />
               </div>
               <div
                 class="formData" data-error="Veuillez saisir un email">
@@ -229,6 +228,9 @@
             </form>
           </div>
         </div>
+      </div>
+      <div class="alert alert-success alert-none">
+        <span>Votre inscription à bien été validé</span>
       </div>
     </main>
     <footer>
