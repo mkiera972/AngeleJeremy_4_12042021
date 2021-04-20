@@ -12,11 +12,12 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
+const blockForm = document.getElementsByTagName("form")[0];
 const formData = document.querySelectorAll(".formData");
 const inputFormData = document.querySelectorAll(".text-control");
 const checkboxFormData = document.querySelectorAll(".checkbox-input");
 const spanClose = document.querySelector(".close");
-const alertResult = document.querySelector(".alert");
+const blockValidator = document.querySelector(".result");
 const fa = document.querySelector(".fa");
 
 // launch modal event
@@ -24,7 +25,8 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // launch modal form
 function launchModal() {
-  alertResult.setAttribute("class","alert alert-success alert-none");
+  blockForm.style.display ="block";
+  blockValidator.style.display ="none";
   modalbg.style.display = "block";
 }
 
@@ -128,13 +130,14 @@ function validate(){
   if(!resultForm){return false;}
 
   //RESET DU FORMULAIRE SI VALIDATION OK
-  document.getElementById("reserve").reset();
-
+  blockForm.reset();
+  blockForm.style.display ="none";
+  blockValidator.style.display ="block";
   //FERMETURE DE LA MODAL
-  closeModal();
+  //closeModal();
 
   //AJOUT DU MESSAGE DE VALIDATION DU FORMULAIRE
-  alertResult.setAttribute("class","alert alert-success alert-display");
+  //document.getElementById("reserve").reset();
   return false;
 }
 
