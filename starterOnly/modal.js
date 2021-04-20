@@ -38,6 +38,10 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
+
+// ONCHANGE SUR LES INPUTS TEXT
+inputFormData.forEach((input) => input.addEventListener("change", check_saisie));
+
 /**
  * Cette fonction controle les champs de saisie
  * @returns le statut du formulaire

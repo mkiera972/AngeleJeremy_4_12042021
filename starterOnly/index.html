@@ -70,7 +70,6 @@
                   id="first"
                   name="first"
                   minlength="2"
-                  onchange="check_saisie()"
                   required
                 />
               </div>
@@ -84,7 +83,6 @@
                   name="last"
                   minlength="2"
                   required
-                  onchange="check_saisie()"
                 />
               </div>
               <div
@@ -96,7 +94,6 @@
                   id="email"
                   name="email"
                   required
-                  onchange="check_saisie()"
                 />
               </div>
               <div
@@ -108,14 +105,12 @@
                   id="birthdate"
                   name="birthdate"
                   required
-                  onchange="check_saisie()"
                 />
               </div>
               <div
                 class="formData" data-error="Veuillez saisir un nombre">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label>
                 <input type="number" 
-                  onchange="check_saisie()" 
                   class="text-control" 
                   id="quantity" 
                   name="quantity" 
@@ -136,8 +131,8 @@
                 />
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
-                  New York</label
-                >
+                  New York
+                </label>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -148,8 +143,8 @@
                 />
                 <label class="checkbox-label" for="location2">
                   <span class="checkbox-icon"></span>
-                  San Francisco</label
-                >
+                  San Francisco
+                </label>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -160,8 +155,8 @@
                 />
                 <label class="checkbox-label" for="location3">
                   <span class="checkbox-icon"></span>
-                  Seattle</label
-                >
+                  Seattle
+                </label>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -172,8 +167,8 @@
                 />
                 <label class="checkbox-label" for="location4">
                   <span class="checkbox-icon"></span>
-                  Chicago</label
-                >
+                  Chicago
+                </label>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -184,8 +179,8 @@
                 />
                 <label class="checkbox-label" for="location5">
                   <span class="checkbox-icon"></span>
-                  Boston</label
-                >
+                  Boston
+                </label>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -196,10 +191,9 @@
                 />
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
-                  Portland</label
-                >
+                  Portland
+                </label>
               </div>
-
               <div class="formData" data-error="Veuillez accepter les conditions d'utilisation">
                 <input
                   class="checkbox-input"
@@ -211,14 +205,12 @@
                 <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
-                </label>
-                
+                </label> 
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
                   Je souhaite être prévenu des prochains évènements.
-                </label>
-              
+                </label>             
               </div>
               <input
                 class="btn-submit"
@@ -227,7 +219,7 @@
               />
             </form>
             <div class="result">
-              <span class="alert">Merci! Votre réservation a été reçue.</span>
+              <span class="alert">Merci ! Votre réservation a été reçue.</span>
               <button onclick="closeModal()" class="btn-submit ">Fermer</button>
             </div>
           </div>
