@@ -12,12 +12,12 @@
     />
   </head>
   <body>
+<!-- HEADER -->
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
         <img alt="logo" src="Logo.png" />
       </div>
       <div class="main-navbar">
-        
         <a href="#" class="active"><span>Accueil</span></a>
         <a href="#"><span>Détails de l'évènement</span></a>
         <a href="#"><span>À propos</span></a>
@@ -28,6 +28,7 @@
         </a>
       </div>
     </div>
+<!-- MAIN -->
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -49,7 +50,7 @@
           je m'inscris
         </button>
       </div>
-
+<!-- MODAL -->
       <div class="bground">
         <div class="content">
           <span class="close"></span>
@@ -70,6 +71,7 @@
                   id="first"
                   name="first"
                   minlength="2"
+                  oninput="clearString(this)"
                   onchange="check_saisie()"
                   required
                 />
@@ -84,6 +86,7 @@
                   name="last"
                   minlength="2"
                   required
+                  oninput="clearString(this)"
                   onchange="check_saisie()"
                 />
               </div>
@@ -96,6 +99,7 @@
                   id="email"
                   name="email"
                   required
+                  oninput="clearString(this)"
                   onchange="check_saisie()"
                 />
               </div>
@@ -234,6 +238,7 @@
         </div>
       </div>
     </main>
+<!-- FOOTER -->
     <footer>
       <p class="copyrights">
         Copyright 2014 - 2020, GameOn Inc.

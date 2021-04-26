@@ -102,6 +102,17 @@ function check_saisie(type = 'input'){
                 statutSaisie = true;
               }  
             break;
+          
+          case "email":
+            if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(valueInput))
+            {
+              formData[i].setAttribute("data-error-visible","false");
+              statutSaisie = true;
+            }else{
+              formData[i].setAttribute("data-error-visible","true");
+              statutSaisie = false;
+            }
+            break;
         
           default:
               if((valueInput == '')){
@@ -120,6 +131,17 @@ function check_saisie(type = 'input'){
   }//switch (type)
 
   return statutSaisie;
+}
+
+/**
+ * Suprime les espaces
+ * objet en entree
+ * return une chaine nettoyée
+ */
+function clearString(ao){
+  value = ao.value;
+  idInput = ao.id;
+  document.getElementById(idInput).value =  value.split(" ").join(""); 
 }
 
 function validate(){
