@@ -78,20 +78,19 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 768px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
   }
+
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
   .topnav.responsive a {
     float: none;
     display: block;
@@ -106,7 +105,6 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    /*margin-top: -15px;*/
   }
 } 
 
@@ -245,12 +243,6 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -290,9 +282,6 @@ input[data-error]::after {
 }
 .checkbox-input {
   display: none;
-  /*position: absolute;
-  top: 10px;
-  left: 10px;*/
 }
 .checkbox-input:checked + .checkbox-label .checkbox-icon::after,
 .checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
@@ -504,6 +493,13 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
+@media screen and (max-width: 768px) {
+  .content {
+    margin: 20% auto;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .topnav {
     margin: 10px 2px 15px 20px;
@@ -537,6 +533,11 @@ footer {
     padding: 0;
     min-width: 100%;
   }
+
+  .hero-headline-span{
+    display: contents;
+  }
+
   .hero-content::after {
     content: unset;
   }
@@ -565,12 +566,15 @@ footer {
     padding: 12px 35px;
   }
 
-  .content {
-    margin: 20% auto;
-  }
   .copyrights {
     margin-top: 50px;
     text-align: center;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 800px) {
+  .content {
+    margin: 8% auto;
   }
 }
 
