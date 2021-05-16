@@ -1,3 +1,6 @@
+/**
+ * FONCTION QUI MODIFIE LA NAV POUR LE FORMAT MOBILE / TABLETTE
+ */
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -9,7 +12,9 @@ function editNav() {
   }
 }
 
-// DOM Elements
+/**
+ * ELEMENTS DU DOM
+ */
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const blockForm = document.getElementsByTagName("form")[0];
@@ -20,26 +25,36 @@ const spanClose = document.querySelector(".close");
 const blockValidator = document.querySelector(".result");
 const fa = document.querySelector(".fa");
 
-// launch modal event
+/**
+ * LANCE LA FONCTION D'OUVERTURE DE LA MODAL AU DECLENCHEMENT DE L'EVENT
+ */
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
-// launch modal form
+/**
+ * OUVRE LA MODAL FORMULAIRE
+ */
 function launchModal() {
   blockForm.style.display ="block";
   blockValidator.style.display ="none";
   modalbg.style.display = "block";
 }
 
-// launch close modal event
+/**
+ * LANCE LA FONCTION DE FERMETURE DE MODAL AU DECLENCHEMENT DE L'EVENT 
+ */
 spanClose.addEventListener("click",closeModal);
 
-// close modal form
+/**
+ * FERME LA MODAL FORMULAIRE
+ */
 function closeModal() {
   modalbg.style.display = "none";
 }
 
 
-// ONCHANGE SUR LES INPUTS TEXT
+/**
+ * APPEL LA FONCTION DE VERIFICATION APRES CHANGEMENT SUR LE INPUT
+ * */
 inputFormData.forEach((input) => input.addEventListener("change", check_saisie));
 
 /**
@@ -69,7 +84,7 @@ function check_saisie(type = 'input'){
 
       }//for (i = 0; i < checkboxFormData.length; i++)
 
-      //AFFICHAGE DU MESSAGE D'ERREUR SI AUCUN VILLE CHOISIE
+      //AFFICHAGE DU MESSAGE D'ERREUR SI AUCUNE VILLE CHOISIE
       if(!cityIsChecked){
         formData[5].setAttribute("data-error-visible","true");
       }else{
@@ -139,7 +154,7 @@ function check_saisie(type = 'input'){
 
 /**
  * Suprime les espaces
- * objet en entree
+ * objet en entre
  * return une chaine nettoyée
  */
 function clearString(ao){
@@ -148,23 +163,22 @@ function clearString(ao){
   document.getElementById(idInput).value =  value.split(" ").join(""); 
 }
 
+/**
+ * VALIDATION DU FORMULAIRE
+ * @returns 
+ */
 function validate(){
-  console.log(checkboxFormData)
   
   /* Controle du choix des villes */
-  resultForm = check_saisie("checkbox");
-  if(!resultForm){return false;}
+  statutResultForm = check_saisie("checkbox");
+  if(!statutResultForm){return false;}
 
   //RESET DU FORMULAIRE SI VALIDATION OK
   blockForm.reset();
   blockForm.style.display ="none";
   blockValidator.style.display ="block";
-  //FERMETURE DE LA MODAL
-  //closeModal();
 
-  //AJOUT DU MESSAGE DE VALIDATION DU FORMULAIRE
-  //document.getElementById("reserve").reset();
-  return false;
+  return true;
 }
 
 
