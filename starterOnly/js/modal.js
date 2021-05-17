@@ -199,7 +199,7 @@ function validate(){
   blockForm.style.display ="none";
   blockValidator.style.display ="block";
 
-  return true;
+  return false;
 }
 
 
