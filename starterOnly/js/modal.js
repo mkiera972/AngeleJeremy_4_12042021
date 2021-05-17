@@ -5,11 +5,32 @@ function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
     x.className += " responsive";
-    fa.style.color = "#ffffff";
+    /*fa.style.color = "#ffffff";*/
   } else {
     x.className = "topnav";
-    fa.style.color = "#fe142f";
+    //fa.style.color = "#fe142f";
   }
+}
+
+/**
+ * RECUPERATION DU DOM MENU
+ */
+var mainNavbar = document.getElementsByClassName("main-navbar");
+
+/**
+ * RECUPERATION DE TOUS LES LIENS DU MENU
+ */
+var links = mainNavbar[0].getElementsByTagName("a");
+
+/**
+ * BOUCLE SUR LES LIENS ET AJOUT DE LA CLASS ACTIVE SUR LE COURANT ET SUPPRESSION SUR LE PRECEDENT
+ */
+for (var i = 0; i < links.length-1; i++) {
+  links[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace("active", "");
+    this.className = "active";
+  });
 }
 
 /**

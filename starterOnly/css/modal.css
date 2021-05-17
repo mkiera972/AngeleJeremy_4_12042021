@@ -8,7 +8,7 @@
   margin: 0;
   padding: 0;
 }
-/* Landing Page */
+/* PAGE D'ACCUEIL */
 
 body {
   margin: 0;
@@ -91,6 +91,14 @@ img {
     display: block;
   }
 
+  .topnav a.icon:hover {
+    color: #ffffff;
+  }
+  
+  .topnav a.icon:active {
+    color: #ffffff;
+  }
+
   .topnav.responsive a {
     float: none;
     display: block;
@@ -144,7 +152,7 @@ main {
   font-family: var(--font-slab);
 }
 
-/* Modal form */
+/* MODAL FORMULAIRE */
 
 .button {
   background: #fe142f;
