@@ -5,10 +5,8 @@ function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
     x.className += " responsive";
-    /*fa.style.color = "#ffffff";*/
   } else {
     x.className = "topnav";
-    //fa.style.color = "#fe142f";
   }
 }
 
@@ -141,7 +139,7 @@ function check_saisie(type = 'input'){
                 formData[i].setAttribute("data-error-visible","false");
                 statutSaisie = true;
               }  
-            break;
+          break;
           
           case "email":
             if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(valueInput))
@@ -152,7 +150,22 @@ function check_saisie(type = 'input'){
               formData[i].setAttribute("data-error-visible","true");
               statutSaisie = false;
             }
-            break;
+          break;
+
+          case "birthdate":
+            var dateBirthday = new Date(valueInput);
+            var dateToDay = new Date();
+            if(dateBirthday > dateToDay){
+              document.getElementById(idInput).value = '';
+              formData[i].setAttribute("data-error-visible","true");
+              formData[i].setAttribute("data-error","Veuillez choisir une date de naissance inférieur à la date du jour");
+              statutSaisie = false;
+            }else{
+              formData[i].setAttribute("data-error-visible","false");
+              formData[i].setAttribute("data-error","Veuillez saisir une date de naissance");
+              statutSaisie = true;
+            }
+          break;
         
           default:
               if((valueInput == '')){
@@ -162,7 +175,7 @@ function check_saisie(type = 'input'){
                 formData[i].setAttribute("data-error-visible","false");
                 statutSaisie = true;
               }
-            break;
+          break;
         }
 
       }//for (i = 0; i < inputFormData.length; i++)
